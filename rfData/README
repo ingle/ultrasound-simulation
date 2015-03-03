@@ -1,0 +1,19 @@
+== util.cpp, util.h ==
+Contain the frenelInt class and related functions used for calculating the
+integral involved in pressure field calculations.
+
+== pressureField.cpp, pressureField.h ==
+The header file describes a class called array that holds all the
+details about the imaging array of transducers. Parameters include
+1. element geometry (width, height)
+2. element spacing
+3. number of elements
+4. tx and rx F numbers (F<0 means all elements active)
+5. sound speed
+It also describes a class to hold pressure field calculation.
+An important function is setFocus() that calculates the necessary
+element delays (phase values).
+
+== rf_data.cpp ==
+
+
