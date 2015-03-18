@@ -6,3 +6,15 @@ The second part is used to displace scatterers, and create a second deformed pha
 This is useful for simulating elastographic imaging.
 
 The third part of the program simulates ultrasound image formation in the frequency domain.
+
+Note that this code is provided under a modified MIT license. In addition to the MIT
+license terms, the authors ask you to cite the following paper in all published
+work that uses this or derivatives of this work.
+
+Yadong Li, James A. Zagzebski, ``A Frequency Domain Model for Generating B-Mode
+Images with Array Transducers,'' IEEE Transactions on Ultrasonics,
+Ferroelectrics, and Frequency Control, vol. 46, no. 3, May 1999.
+
+
+
+
