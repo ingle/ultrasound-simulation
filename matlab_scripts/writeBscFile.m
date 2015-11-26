@@ -1,4 +1,4 @@
-function BSCCurve = sphere(fname, maxFreqMHz, diam,sosm,soss,sosshear,rhom,rhos,maxang,maxn)
+function BSCCurve = writeBscFile(fname, maxFreqMHz, diam,sosm,soss,sosshear,rhom,rhos,maxang,maxn)
 
 %This function writes a backscatter coefficient file given a filename
 %and a maximum frequency.
@@ -94,7 +94,7 @@ end
 k3absscatlength=abs(legend*coeff); %matrix mult completes summation over n
 
 %absolute scattering length to backscatter coefficients
-disp('THe number of NANs is: ');
+disp('The number of NANs is: ');
 disp(nnz(isnan(k3absscatlength)))
 k3absscatlength( isnan(k3absscatlength) ) = 0;
 BSCCurve=(k3absscatlength./k).^2;
@@ -106,15 +106,17 @@ fwrite(h, length(BSCCurve), 'double' );
 fwrite(h, BSCCurve, 'double');
 
 function sphbess = sphbess(order,vect)
+  %calculates the spherical bessel function of order 'order' for the passed
+  %vector
 
-%calculates the spherical bessel function of order 'order' for the passed
-%vector
-
-sphbess=sqrt(pi/2./vect).*besselj(order+0.5,vect);
+  %sphbess=sqrt(pi/2./vect).*besselj(order+0.5,vect);
+  sphbess= log(sqrt(pi/2./vect)) + log(besselj(order+0.5,vect));
+  sphbess = exp(sphbess);
 
 function sphneumm = sphneumm(order,vect)
+  %calculates the spherical neumann function of order 'order' for the passed
+  %vector
 
-%calculates the spherical neumann function of order 'order' for the passed
-%vector
-
-sphneumm=sqrt(pi/2./vect).*bessely(order+0.5,vect);
+  %sphneumm=sqrt(pi/2./vect).*bessely(order+0.5,vect);
+  sphneumm=log(sqrt(pi/2./vect)) + log(bessely(order+0.5,vect));
+  sphneumm=exp(sphneumm)
