@@ -1,3 +1,9 @@
 *.dat
 *.pyc
 *.txt
+*.cpp~
+*.m~
+*.swp
+*.swo
+tags
+
