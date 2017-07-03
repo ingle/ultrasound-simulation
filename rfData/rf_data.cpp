@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
 				{
 				       loc = pressure.phantomCoordinateToPressureCoordinate(pos[j], i);
 				       cplx a0 = pressure.bufferField(loc); //get pressure field at location
-				       fftCoef[fIndex + i*freqPoints] += a0*sqrt(target.giveBsc(freq/1E6) );
+				       fftCoef[fIndex + i*freqPoints] += a0*target.giveBsc(freq);
 
 					//a0 is pi and ps, incident and scattered pressure multiplied
 				}
