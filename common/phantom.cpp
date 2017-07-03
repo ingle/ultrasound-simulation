@@ -34,7 +34,7 @@ void phantom::createUniformPhantom(const myVector& phansize, double density, dou
 	phantom::a0 = atten0;
 	phantom::a1 = atten1;
 	phantom::a2 = atten2;
-	totalScatters =  (int)(phansize.x*phansize.y*phansize.z*density);
+	totalScatters =  (int)(phansize.x*phansize.y*phansize.z*density * 1e9);
 	cout << "The total number of scatterers is: " << totalScatters <<endl;
 	phanSize = phansize;
 	buffer = new scatterer[totalScatters];
